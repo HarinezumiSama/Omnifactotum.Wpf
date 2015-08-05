@@ -1,0 +1,2 @@
+--- First published version 0.1.0.1 ---
+* Introduced the WpfFactotum helper class
