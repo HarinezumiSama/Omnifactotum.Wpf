@@ -61,6 +61,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\BooleanToBrushConverter.cs" />
+    <Compile Include="Converters\BooleanToFontWeightConverter.cs" />
+    <Compile Include="Converters\BooleanToValueConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\NullableBooleanToValueConverter.cs" />
+    <Compile Include="Converters\NullableBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\RelayValueConverter.cs" />
+    <Compile Include="WindowStyles.cs" />
+    <Compile Include="InternalConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
