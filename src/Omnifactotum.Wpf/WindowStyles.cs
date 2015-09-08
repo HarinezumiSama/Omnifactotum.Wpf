@@ -7,10 +7,16 @@ using Omnifactotum.Annotations;
 
 namespace Omnifactotum.Wpf
 {
-    internal static class WindowStyles
+    /// <summary>
+    /// Contains the attached properties allowing to specify extra styles for <see cref="Window" />.
+    /// </summary>
+    public static class WindowStyles
     {
         #region Constants and Fields
 
+        /// <summary>
+        ///     The identifier for the <see cref="P:WindowStyles.CanMinimize"/> attached property.
+        /// </summary>
         public static readonly DependencyProperty CanMinimizeProperty =
             DependencyProperty.RegisterAttached(
                 "CanMinimize",
@@ -18,6 +24,9 @@ namespace Omnifactotum.Wpf
                 typeof(WindowStyles),
                 new UIPropertyMetadata(true, OnCanMinimizeChanged));
 
+        /// <summary>
+        ///     The identifier for the <see cref="P:WindowStyles.CanMaximize"/> attached property.
+        /// </summary>
         public static readonly DependencyProperty CanMaximizeProperty =
             DependencyProperty.RegisterAttached(
                 "CanMaximize",
@@ -25,6 +34,9 @@ namespace Omnifactotum.Wpf
                 typeof(WindowStyles),
                 new UIPropertyMetadata(true, OnCanMaximizeChanged));
 
+        /// <summary>
+        ///     The identifier for the <see cref="P:WindowStyles.HasSystemMenu"/> attached property.
+        /// </summary>
         public static readonly DependencyProperty HasSystemMenuProperty =
             DependencyProperty.RegisterAttached(
                 "HasSystemMenu",
@@ -32,29 +44,17 @@ namespace Omnifactotum.Wpf
                 typeof(WindowStyles),
                 new UIPropertyMetadata(true, OnHasSystemMenuChanged));
 
-        //// ReSharper disable once InconsistentNaming - WinAPI import
+        //// ReSharper disable InconsistentNaming - WinAPI imports
         private const int SWP_FRAMECHANGED = 0x0020;
 
-        //// ReSharper disable once InconsistentNaming - WinAPI import
         private const int SWP_NOACTIVATE = 0x0010;
-
-        //// ReSharper disable once InconsistentNaming - WinAPI import
         private const int SWP_NOMOVE = 0x0002;
-
-        //// ReSharper disable once InconsistentNaming - WinAPI import
         private const int SWP_NOOWNERZORDER = 0x0200;
-
-        //// ReSharper disable once InconsistentNaming - WinAPI import
         private const int SWP_NOREPOSITION = 0x0200;
-
-        //// ReSharper disable once InconsistentNaming - WinAPI import
         private const int SWP_NOSIZE = 0x0001;
-
-        //// ReSharper disable once InconsistentNaming - WinAPI import
         private const int SWP_NOZORDER = 0x0004;
-
-        //// ReSharper disable once InconsistentNaming - WinAPI import
         private const int GWL_STYLE = -16;
+        //// ReSharper restore InconsistentNaming - WinAPI imports
 
         private const string User32Dll = "user32.dll";
 
@@ -65,78 +65,154 @@ namespace Omnifactotum.Wpf
         [Flags]
         private enum ApiWindowStyles : uint
         {
-            //// ReSharper disable once InconsistentNaming - WinAPI import
+            //// ReSharper disable InconsistentNaming - WinAPI imports
             WS_SYSMENU = 0x80000,
 
-            //// ReSharper disable once InconsistentNaming - WinAPI import
             WS_MINIMIZEBOX = 0x20000,
-
-            //// ReSharper disable once InconsistentNaming - WinAPI import
             WS_MAXIMIZEBOX = 0x10000,
+            //// ReSharper restore InconsistentNaming - WinAPI imports
         }
 
         #endregion
 
         #region Public Methods
 
-        public static bool GetCanMinimize(Window obj)
+        /// <summary>
+        ///     Gets the value of the <see cref="P:WindowStyles.CanMinimize"/> attached property
+        ///     from the specified <see cref="Window"/>.
+        /// </summary>
+        /// <param name="window">
+        ///     The window from which to read the property value.
+        /// </param>
+        /// <returns>
+        ///     The value of the <see cref="P:WindowStyles.CanMinimize"/> attached property.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="window"/> is <c>null</c>.
+        /// </exception>
+        public static bool GetCanMinimize(Window window)
         {
-            if (obj == null)
+            if (window == null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                throw new ArgumentNullException(nameof(window));
             }
 
-            return (bool)obj.GetValue(CanMinimizeProperty);
+            return (bool)window.GetValue(CanMinimizeProperty);
         }
 
-        public static void SetCanMinimize(Window obj, bool value)
+        /// <summary>
+        ///     Sets the value of the <see cref="P:WindowStyles.CanMinimize"/> attached property to
+        ///     the specified <see cref="Window"/>.
+        /// </summary>
+        /// <param name="window">
+        ///     The window on which to set the <see cref="P:WindowStyles.CanMinimize"/> attached property.
+        /// </param>
+        /// <param name="value">
+        ///     The property value to set.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="window"/> is <c>null</c>.
+        /// </exception>
+        public static void SetCanMinimize(Window window, bool value)
         {
-            if (obj == null)
+            if (window == null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                throw new ArgumentNullException(nameof(window));
             }
 
-            obj.SetValue(CanMinimizeProperty, value);
+            window.SetValue(CanMinimizeProperty, value);
         }
 
-        public static bool GetCanMaximize(Window obj)
+        /// <summary>
+        ///     Gets the value of the <see cref="P:WindowStyles.CanMaximize"/> attached property
+        ///     from the specified <see cref="Window"/>.
+        /// </summary>
+        /// <param name="window">
+        ///     The window from which to read the property value.
+        /// </param>
+        /// <returns>
+        ///     The value of the <see cref="P:WindowStyles.CanMaximize"/> attached property.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="window"/> is <c>null</c>.
+        /// </exception>
+        public static bool GetCanMaximize(Window window)
         {
-            if (obj == null)
+            if (window == null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                throw new ArgumentNullException(nameof(window));
             }
 
-            return (bool)obj.GetValue(CanMaximizeProperty);
+            return (bool)window.GetValue(CanMaximizeProperty);
         }
 
-        public static void SetCanMaximize(Window obj, bool value)
+        /// <summary>
+        ///     Sets the value of the <see cref="P:WindowStyles.CanMaximize"/> attached property to
+        ///     the specified <see cref="Window"/>.
+        /// </summary>
+        /// <param name="window">
+        ///     The window on which to set the <see cref="P:WindowStyles.CanMaximize"/> attached property.
+        /// </param>
+        /// <param name="value">
+        ///     The property value to set.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="window"/> is <c>null</c>.
+        /// </exception>
+        public static void SetCanMaximize(Window window, bool value)
         {
-            if (obj == null)
+            if (window == null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                throw new ArgumentNullException(nameof(window));
             }
 
-            obj.SetValue(CanMaximizeProperty, value);
+            window.SetValue(CanMaximizeProperty, value);
         }
 
-        public static bool GetHasSystemMenu(Window obj)
+        /// <summary>
+        ///     Gets the value of the <see cref="P:WindowStyles.HasSystemMenu"/> attached property
+        ///     from the specified <see cref="Window"/>.
+        /// </summary>
+        /// <param name="window">
+        ///     The window from which to read the property value.
+        /// </param>
+        /// <returns>
+        ///     The value of the <see cref="P:WindowStyles.HasSystemMenu"/> attached property.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="window"/> is <c>null</c>.
+        /// </exception>
+        public static bool GetHasSystemMenu(Window window)
         {
-            if (obj == null)
+            if (window == null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                throw new ArgumentNullException(nameof(window));
             }
 
-            return (bool)obj.GetValue(HasSystemMenuProperty);
+            return (bool)window.GetValue(HasSystemMenuProperty);
         }
 
-        public static void SetHasSystemMenu(Window obj, bool value)
+        /// <summary>
+        ///     Sets the value of the <see cref="P:WindowStyles.HasSystemMenu"/> attached property to
+        ///     the specified <see cref="Window"/>.
+        /// </summary>
+        /// <param name="window">
+        ///     The window on which to set the <see cref="P:WindowStyles.HasSystemMenu"/> attached property.
+        /// </param>
+        /// <param name="value">
+        ///     The property value to set.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="window"/> is <c>null</c>.
+        /// </exception>
+        public static void SetHasSystemMenu(Window window, bool value)
         {
-            if (obj == null)
+            if (window == null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                throw new ArgumentNullException(nameof(window));
             }
 
-            obj.SetValue(HasSystemMenuProperty, value);
+            window.SetValue(HasSystemMenuProperty, value);
         }
 
         #endregion

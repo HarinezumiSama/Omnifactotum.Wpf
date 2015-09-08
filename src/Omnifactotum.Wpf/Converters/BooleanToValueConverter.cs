@@ -52,7 +52,7 @@ namespace Omnifactotum.Wpf.Converters
         #region IValueConverter Members
 
         /// <summary>
-        ///     Converts a value.
+        ///     Converts a value produced by the binding source to the type of the binding target property.
         /// </summary>
         /// <param name="value">
         ///     The value produced by the binding source.
@@ -71,6 +71,16 @@ namespace Omnifactotum.Wpf.Converters
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (!(value is bool))
+            {
+                throw new ArgumentException(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        @"The value must be of the type '{0}'.",
+                        typeof(bool).Name),
+                    nameof(value));
+            }
+
             if (!targetType.IsAssignableFrom(typeof(T)))
             {
                 throw new ArgumentException(
@@ -82,21 +92,11 @@ namespace Omnifactotum.Wpf.Converters
                     nameof(targetType));
             }
 
-            if (!(value is bool))
-            {
-                throw new ArgumentException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        @"The value must be of the type '{0}'.",
-                        typeof(bool).Name),
-                    nameof(value));
-            }
-
             return (bool)value ? TrueValue : FalseValue;
         }
 
         /// <summary>
-        ///     Converts a value.
+        ///     Converts a value produced by the binding target to the type of the binding source property.
         /// </summary>
         /// <param name="value">
         ///     The value that is produced by the binding target.
@@ -117,6 +117,16 @@ namespace Omnifactotum.Wpf.Converters
         {
             #region Argument Check
 
+            if (!(value is T))
+            {
+                throw new ArgumentException(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        @"The value must be of the type '{0}'.",
+                        typeof(T).GetQualifiedName()),
+                    nameof(value));
+            }
+
             if (!targetType.IsAssignableFrom(typeof(bool)))
             {
                 throw new ArgumentException(
@@ -126,16 +136,6 @@ namespace Omnifactotum.Wpf.Converters
                         targetType.GetQualifiedName(),
                         typeof(bool).GetQualifiedName()),
                     nameof(targetType));
-            }
-
-            if (!(value is T))
-            {
-                throw new ArgumentException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        @"The value must be of the type '{0}'.",
-                        typeof(T).GetQualifiedName()),
-                    nameof(value));
             }
 
             #endregion

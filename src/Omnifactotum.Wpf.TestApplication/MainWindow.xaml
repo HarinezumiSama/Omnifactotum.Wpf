@@ -1,0 +1,24 @@
+﻿<Window x:Class="Omnifactotum.Wpf.TestApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:omniwpf="omnifactotum://omnifactotum.wpf/schemas/xaml"
+        xmlns:self="clr-namespace:Omnifactotum.Wpf.TestApplication"
+        mc:Ignorable="d" Title="MainWindow" d:DesignHeight="350" d:DesignWidth="525"
+        MinWidth="400" MinHeight="300"
+        WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight"
+        omniwpf:WindowStyles.CanMinimize="{Binding CanMinimize,Mode=OneWay}"
+        omniwpf:WindowStyles.CanMaximize="{Binding CanMaximize,Mode=OneWay}"
+        omniwpf:WindowStyles.HasSystemMenu="{Binding HasSystemMenu,Mode=OneWay}">
+    <Window.DataContext>
+        <self:MainWindowViewModel x:Name="ViewModel" />
+    </Window.DataContext>
+    <Grid Margin="10">
+        <StackPanel Orientation="Vertical">
+            <CheckBox Content="CanMinimize" IsThreeState="False" IsChecked="{Binding CanMinimize}" />
+            <CheckBox Content="CanMaximize" IsThreeState="False" IsChecked="{Binding CanMaximize}" />
+            <CheckBox Content="HasSystemMenu" IsThreeState="False" IsChecked="{Binding HasSystemMenu}" />
+        </StackPanel>
+    </Grid>
+</Window>
