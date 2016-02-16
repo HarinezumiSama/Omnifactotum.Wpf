@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:omniwpf="omnifactotum://omnifactotum.wpf/schemas/xaml"
         xmlns:self="clr-namespace:Omnifactotum.Wpf.TestApplication"
+        xmlns:omniwpf="omnifactotum://omnifactotum.wpf/schemas/xaml"
+        xmlns:omniwpfconverters="omnifactotum://omnifactotum.wpf/schemas/xaml/converters"
         mc:Ignorable="d" Title="MainWindow" d:DesignHeight="350" d:DesignWidth="525"
         MinWidth="400" MinHeight="300"
         WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight"
@@ -14,11 +15,33 @@
     <Window.DataContext>
         <self:MainWindowViewModel x:Name="ViewModel" />
     </Window.DataContext>
-    <Grid Margin="10">
-        <StackPanel Orientation="Vertical">
-            <CheckBox Content="CanMinimize" IsThreeState="False" IsChecked="{Binding CanMinimize}" />
-            <CheckBox Content="CanMaximize" IsThreeState="False" IsChecked="{Binding CanMaximize}" />
-            <CheckBox Content="HasSystemMenu" IsThreeState="False" IsChecked="{Binding HasSystemMenu}" />
-        </StackPanel>
-    </Grid>
+    <Window.Resources>
+        <omniwpfconverters:SmartKeyGestureConverter x:Key="SmartKeyGestureConverter" />
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding ToggleCanMinimizeCommand}" Modifiers="Control" Key="M" />
+        <KeyBinding Command="{Binding ToggleCanMinimizeCommand.CancelCommand}" Modifiers="Control" Key="C" />
+    </Window.InputBindings>
+    <StackPanel Orientation="Vertical">
+        <Menu>
+            <MenuItem Header="_Action">
+                <MenuItem Header="Toggle CanMinimize" Command="{Binding ToggleCanMinimizeCommand}"
+                        InputGestureText="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource SmartKeyGestureConverter}}" />
+                <MenuItem Header="Cancel: Toggle CanMinimize" Command="{Binding ToggleCanMinimizeCommand.CancelCommand}"
+                        InputGestureText="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource SmartKeyGestureConverter}}" />
+            </MenuItem>
+        </Menu>
+        <Grid Margin="10">
+            <StackPanel Orientation="Vertical">
+                <CheckBox Content="CanMinimize" IsThreeState="False" IsChecked="{Binding CanMinimize}" />
+                <CheckBox Content="CanMaximize" IsThreeState="False" IsChecked="{Binding CanMaximize}" />
+                <CheckBox Content="HasSystemMenu" IsThreeState="False" IsChecked="{Binding HasSystemMenu}" />
+                <Separator />
+                <Button Content="Toggle CanMinimize" Width="200" HorizontalAlignment="Left"
+                        Command="{Binding ToggleCanMinimizeCommand}" />
+                <Button Content="Cancel: Toggle CanMinimize" Width="200" HorizontalAlignment="Left"
+                        Command="{Binding ToggleCanMinimizeCommand.CancelCommand}" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </Window>

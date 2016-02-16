@@ -10,6 +10,11 @@ if errorlevel 1 goto EXT_ERROR
 
 set EnableNuGetPackageRestore=true
 
+set AppDir=%ProgramFiles%
+if /i "%PROCESSOR_ARCHITECTURE%" equ "AMD64" set AppDir=%ProgramFiles(x86)%
+
+set MSBUILD=%AppDir%\MSBuild\14.0\Bin\MSBuild.exe
+
 set SRC_PROJECT_PATH=%~dp0\src\Omnifactotum.Wpf\Omnifactotum.Wpf.csproj
 set SRC_SOLUTION_PATH=%~dp0\src\Omnifactotum.Wpf.sln
 set REL_NOTES_PATH=%~dp0\src\Omnifactotum.Wpf.ReleaseNotes.txt
@@ -47,7 +52,7 @@ echo * Cleaning the output directory - DONE.
 
 echo.
 echo * Building project...
-"%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" "%SRC_SOLUTION_PATH%" /target:Rebuild /p:Configuration="Release" /p:Platform="Any CPU" || goto ERROR
+"%MSBUILD%" "%SRC_SOLUTION_PATH%" /target:Rebuild /p:Configuration="Release" /p:Platform="Any CPU" || goto ERROR
 echo * Building project - DONE.
 
 echo.

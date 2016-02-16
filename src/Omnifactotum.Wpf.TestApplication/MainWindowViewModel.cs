@@ -1,7 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading;
+using System.Windows;
 using Omnifactotum.Annotations;
+using Omnifactotum.Wpf.Commands;
 
 namespace Omnifactotum.Wpf.TestApplication
 {
@@ -15,12 +18,21 @@ namespace Omnifactotum.Wpf.TestApplication
 
         #endregion
 
+        #region Constructors
+
         public MainWindowViewModel()
         {
             CanMinimize = true;
             CanMaximize = true;
             HasSystemMenu = true;
+
+            ToggleCanMinimizeCommand = new AsyncRelayCommand(
+                ExecuteToggleCanMinimize,
+                exception =>
+                    MessageBox.Show(exception.ToString(), "Oops!", MessageBoxButton.OK, MessageBoxImage.Error));
         }
+
+        #endregion
 
         #region Public Properties
 
@@ -81,6 +93,12 @@ namespace Omnifactotum.Wpf.TestApplication
             }
         }
 
+        public AsyncRelayCommand ToggleCanMinimizeCommand
+        {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region INotifyPropertyChanged Members
@@ -93,8 +111,17 @@ namespace Omnifactotum.Wpf.TestApplication
 
         [NotifyPropertyChangedInvocator]
         private void OnPropertyChanged(string propertyName)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private void ExecuteToggleCanMinimize(object obj, CancellationToken cancellationToken)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var newValue = !CanMinimize;
+
+            cancellationToken.WaitHandle.WaitOne(3000);
+            cancellationToken.ThrowIfCancellationRequested();
+
+            //throw new Exception("Something went wrong!");
+            CanMinimize = newValue;
         }
 
         #endregion

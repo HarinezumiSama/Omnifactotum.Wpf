@@ -61,10 +61,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AsyncRelayCommand.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Commands\RelayCommandBase.cs" />
     <Compile Include="Converters\BooleanToBrushConverter.cs" />
     <Compile Include="Converters\BooleanToFontWeightConverter.cs" />
     <Compile Include="Converters\BooleanToValueConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\SmartKeyGestureConverter.cs" />
     <Compile Include="Converters\NullableBooleanToValueConverter.cs" />
     <Compile Include="Converters\NullableBooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\Delegates.cs" />
@@ -87,6 +91,7 @@
     </Compile>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>"$(ProjectDir)\..\SolutionItems\sign.cmd" "$(TargetPath)" || exit /b 1</PostBuildEvent>
