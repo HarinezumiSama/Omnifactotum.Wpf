@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnifactotum.Wpf", "Omnifactotum.Wpf\Omnifactotum.Wpf.csproj", "{B122C8F7-C350-4B51-ABF0-A303FE8E7455}"
 EndProject
@@ -14,6 +14,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnifactotum.Wpf.Tests", "Omnifactotum.Wpf.Tests\Omnifactotum.Wpf.Tests.csproj", "{9BF17247-8A13-46CF-AD0B-EF8A9DD8F2FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnifactotum.Wpf.TestApplication", "Omnifactotum.Wpf.TestApplication\Omnifactotum.Wpf.TestApplication.csproj", "{BE8BD4FB-6527-4331-AD8A-2D471E77A711}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{C670FE68-6427-4CCA-B920-0B9F4C9719E6}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\BaseVersion.txt = SolutionItems\BaseVersion.txt
+		..\Build.NuGet-Package.cmd = ..\Build.NuGet-Package.cmd
+		..\Build.NuGet-Package.ps1 = ..\Build.NuGet-Package.ps1
+		SolutionItems\CommonAssemblyInfo.cs = SolutionItems\CommonAssemblyInfo.cs
+		SolutionItems\hg.cmd = SolutionItems\hg.cmd
+		SolutionItems\sign.cmd = SolutionItems\sign.cmd
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +46,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C845AC1F-5B21-4581-A053-CF2DC9DA45BF}
 	EndGlobalSection
 EndGlobal

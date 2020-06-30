@@ -3,6 +3,7 @@ glob:obj/*
 glob:*/bin/*
 glob:*/obj/*
 glob:_Output_/*
+glob:.vs/*
 glob:*.suo
 glob:*.csproj.user
 glob:build*.log
@@ -17,3 +18,4 @@ glob:Generated.*
 glob:SolutionItems/Omnifactotum.Wpf.pfx
 glob:published/
 glob:*.GhostDoc.xml
+glob:src/packages/*
