@@ -23,3 +23,18 @@
 - [![GitHub](https://img.shields.io/github/license/HarinezumiSama/Omnifactotum.Wpf)](https://github.com/HarinezumiSama/Omnifactotum.Wpf/blob/master/LICENSE) ![Total lines of code](https://img.shields.io/tokei/lines/github/HarinezumiSama/Omnifactotum.Wpf) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/HarinezumiSama/Omnifactotum.Wpf) ![GitHub language count](https://img.shields.io/github/languages/count/HarinezumiSama/Omnifactotum.Wpf) ![GitHub top language](https://img.shields.io/github/languages/top/HarinezumiSama/Omnifactotum.Wpf) ![GitHub repo size](https://img.shields.io/github/repo-size/HarinezumiSama/Omnifactotum.Wpf)
 
 - [![GitHub open issues](https://img.shields.io/github/issues-raw/HarinezumiSama/Omnifactotum.Wpf)](https://github.com/HarinezumiSama/Omnifactotum.Wpf/issues?q=is%3Aissue+is%3Aopen) [![GitHub open pull requests](https://img.shields.io/github/issues-pr-raw/HarinezumiSama/Omnifactotum.Wpf)](https://github.com/HarinezumiSama/Omnifactotum.Wpf/pulls?q=is%3Apr+is%3Aopen)
+
+### The *non-exhaustive* list of own helper classes
+
+- `WpfFactotum`
+
+### The *non-exhaustive* list of own functional classes
+
+- Commands
+  - `AsyncRelayCommand`
+  - `RelayCommand`
+- Converters
+  - `BooleanToValueConverter<T>`
+  - `NullableBooleanToValueConverter<T>`
+  - `RelayValueConverter`
+  - `SmartKeyGestureConverter`

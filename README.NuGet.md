@@ -11,4 +11,9 @@
 
 ### Changes in 0.2.0 (since 0.1.0.5)
 
-. . .
+#### Major changes
+
+- Enabled multi-target build
+  - .NET Framework: 4.0, 4.6.1, and 4.7.2
+  - .NET: 5.0-windows, 6.0-windows, and 7.0-windows
+- Set `Omnifactotum` package dependency version based on the target framework
