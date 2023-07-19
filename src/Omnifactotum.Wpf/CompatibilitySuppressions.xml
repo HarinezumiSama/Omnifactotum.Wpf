@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://learn.microsoft.com/en-us/dotnet/fundamentals/package-validation/diagnostic-ids -->
+<!--suppress XmlUnusedNamespaceDeclaration -->
+<Suppressions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!--
+        CP1003 seems to be a false detection as per https://github.com/dotnet/sdk/issues/28746
+        So the CP1003 suppression items can be removed when this issue gets released.
+    -->
+    <Suppression>
+        <DiagnosticId>CP1003</DiagnosticId>
+        <Target>lib/net5.0-windows7.0/Omnifactotum.Wpf.dll</Target>
+    </Suppression>
+    <Suppression>
+        <DiagnosticId>CP1003</DiagnosticId>
+        <Target>lib/net6.0-windows7.0/Omnifactotum.Wpf.dll</Target>
+    </Suppression>
+    <Suppression>
+        <DiagnosticId>CP1003</DiagnosticId>
+        <Target>lib/net7.0-windows7.0/Omnifactotum.Wpf.dll</Target>
+    </Suppression>
+</Suppressions>

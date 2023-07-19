@@ -1,157 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B122C8F7-C350-4B51-ABF0-A303FE8E7455}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Omnifactotum.Wpf</RootNamespace>
-    <AssemblyName>Omnifactotum.Wpf</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\SolutionItems\Omnifactotum.Wpf.snk</AssemblyOriginatorKeyFile>
-    <DelaySign>true</DelaySign>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\AnyCpu\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>..\..\bin\AnyCpu\Debug\Omnifactotum.Wpf.xml</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\AnyCpu\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>..\..\bin\AnyCpu\Release\Omnifactotum.Wpf.xml</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Omnifactotum, Version=0.3.0.119, Culture=neutral, PublicKeyToken=463364b83539fcba, processorArchitecture=MSIL">
-      <HintPath>..\packages\Omnifactotum.0.3.0.119\lib\net40-Client\Omnifactotum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Commands\AsyncRelayCommand.cs" />
-    <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Commands\RelayCommandBase.cs" />
-    <Compile Include="Converters\BooleanToBrushConverter.cs" />
-    <Compile Include="Converters\BooleanToFontWeightConverter.cs" />
-    <Compile Include="Converters\BooleanToValueConverter.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\SmartKeyGestureConverter.cs" />
-    <Compile Include="Converters\NullableBooleanToValueConverter.cs" />
-    <Compile Include="Converters\NullableBooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\Delegates.cs" />
-    <Compile Include="Converters\RelayValueConverter.cs" />
-    <Compile Include="WindowStyles.cs" />
-    <Compile Include="InternalConstants.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WpfFactotum.For.cs" />
-    <Compile Include="WpfFactotum.cs" />
-    <None Include="..\SolutionItems\Omnifactotum.Wpf.snk">
-      <Link>Properties\Omnifactotum.Wpf.snk</Link>
-    </None>
-    <Compile Include="..\SolutionItems\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\SolutionItems\Generated.GlobalVersion.cs">
-      <Link>Properties\Generated.GlobalVersion.cs</Link>
-    </Compile>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)\..\SolutionItems\sign.cmd" "$(TargetPath)" || exit /b 1</PostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <CompileDependsOn>UpdateGlobalVersion;$(CompileDependsOn)</CompileDependsOn>
-    <!--CleanDependsOn>UpdateGlobalVersion;$(CleanDependsOn)</CleanDependsOn-->
-    <BuildDependsOn>UpdateGlobalVersion;$(BuildDependsOn)</BuildDependsOn>
-  </PropertyGroup>
-  <PropertyGroup>
-    <MSBuildCommunityTasksPath>$(SolutionDir)\.build</MSBuildCommunityTasksPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets" />
-  <Target Name="UpdateGlobalVersion">
+
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
     <PropertyGroup>
-      <BaseVersionFile>$(ProjectDir)\..\SolutionItems\BaseVersion.txt</BaseVersionFile>
-      <RevisionFile>$(ProjectDir)\..\SolutionItems\Generated.Revision.txt</RevisionFile>
-      <RevisionIdFile>$(ProjectDir)\..\SolutionItems\Generated.RevisionId.txt</RevisionIdFile>
+        <TargetFrameworks>net40;net461;net472;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
-    <Message Importance="high" Text="* Reading base version from '$(BaseVersionFile)'..." />
-    <ReadLinesFromFile File="$(BaseVersionFile)">
-      <Output TaskParameter="Lines" PropertyName="BaseVersion" />
-    </ReadLinesFromFile>
-    <Message Importance="high" Text="* Base version: '$(BaseVersion)'" />
-    <Exec Command="&quot;$(ProjectDir)\..\SolutionItems\hg.cmd&quot; identify --num &gt;&quot;$(RevisionFile)&quot;" />
-    <Exec Command="&quot;$(ProjectDir)\..\SolutionItems\hg.cmd&quot; identify --id &gt;&quot;$(RevisionIdFile)&quot;" />
-    <Message Importance="high" Text="* Reading HG revision number from '$(RevisionFile)'..." />
-    <ReadLinesFromFile File="$(RevisionFile)">
-      <Output TaskParameter="Lines" PropertyName="RevisionRaw" />
-    </ReadLinesFromFile>
-    <RegexReplace Input="$(RevisionRaw)" Expression="\+" Replacement="" Count="1">
-      <Output PropertyName="Revision" TaskParameter="Output" />
-    </RegexReplace>
-    <Message Importance="high" Text="* Revision number: '$(Revision)' (raw '$(RevisionRaw)')." />
+
     <PropertyGroup>
-      <GlobalVersion>$(BaseVersion).0.$(Revision)</GlobalVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
-    <Message Importance="high" Text="* Reading HG revision ID from '$(RevisionIdFile)'..." />
-    <ReadLinesFromFile File="$(RevisionIdFile)">
-      <Output TaskParameter="Lines" PropertyName="RevisionId" />
-    </ReadLinesFromFile>
-    <Message Importance="high" Text="* Revision ID: '$(RevisionId)'" />
-    <ItemGroup>
-      <AssemblyVersion Include="global::System.Reflection.AssemblyVersion">
-        <_Parameter1>$(GlobalVersion)</_Parameter1>
-      </AssemblyVersion>
-      <AssemblyFileVersion Include="global::System.Reflection.AssemblyFileVersion">
-        <_Parameter1>$(GlobalVersion)</_Parameter1>
-      </AssemblyFileVersion>
-      <AssemblyInformationalVersion Include="global::System.Reflection.AssemblyInformationalVersion">
-        <_Parameter1>$(GlobalVersion) (rev. $(RevisionId))</_Parameter1>
-      </AssemblyInformationalVersion>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <!-- Set `GenerateCompatibilitySuppressionFile` to `true` to regenerate "CompatibilitySuppressions.xml"; then set back to `false` -->
+        <GenerateCompatibilitySuppressionFile>false</GenerateCompatibilitySuppressionFile>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'=='net40' or '$(TargetFramework)'=='net461' or '$(TargetFramework)'=='net472'">
+        <Reference Include="Microsoft.CSharp"/>
+        <Reference Include="System.Xaml"/>
+        <Reference Include="WindowsBase"/>
+        <Reference Include="PresentationCore"/>
+        <Reference Include="PresentationFramework"/>
     </ItemGroup>
-    <WriteCodeFragment Language="C#" OutputFile="$(ProjectDir)\..\SolutionItems\Generated.GlobalVersion.cs" AssemblyAttributes="@(AssemblyVersion);@(AssemblyFileVersion);@(AssemblyInformationalVersion)" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
+    <ItemGroup Condition="'$(TargetFramework)'=='net40'">
+        <PackageReference Include="Omnifactotum" Version="[0.6.0,0.7.0)"/>
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'=='net461'">
+        <PackageReference Include="Omnifactotum" Version="[0.11.0,0.12.0)"/>
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'=='net472'">
+        <PackageReference Include="Omnifactotum" Version="[0.13.0,0.14.0)"/>
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'=='net5.0-windows' or '$(TargetFramework)'=='net6.0-windows' or '$(TargetFramework)'=='net7.0-windows'">
+        <PackageReference Include="Omnifactotum" Version="[0.16.0,)"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Common\AssemblyInfo.Common.cs">
+            <Link>Properties\AssemblyInfo.Common.cs</Link>
+        </Compile>
+
+        <None Include="**/*.md"/>
+
+        <None Include="..\Common\Omnifactotum.Wpf.snk">
+            <Link>Properties\Omnifactotum.Wpf.snk</Link>
+        </None>
+
+        <None Include="CompatibilitySuppressions.xml"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(SolutionDir)\..\README.NuGet.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    <PropertyGroup>
+        <PackageReadmeFile>README.NuGet.md</PackageReadmeFile>
+    </PropertyGroup>
 </Project>

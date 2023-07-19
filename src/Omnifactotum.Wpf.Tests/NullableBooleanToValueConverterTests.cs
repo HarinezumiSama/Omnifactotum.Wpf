@@ -74,7 +74,7 @@ namespace Omnifactotum.Wpf.Tests
             Assert.That(() => _converter.Convert(true, typeof(T), null, null), Is.EqualTo(_trueValue));
             Assert.That(() => _converter.Convert(null, typeof(T), null, null), Is.EqualTo(_nullValue));
 
-            if (typeof(T).IsValueType && !typeof(T).IsNullable())
+            if (typeof(T).IsValueType && !typeof(T).IsNullableValueType())
             {
                 var genericType = typeof(Nullable<>).MakeGenericType(typeof(T));
 

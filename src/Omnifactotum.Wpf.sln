@@ -1,15 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnifactotum.Wpf", "Omnifactotum.Wpf\Omnifactotum.Wpf.csproj", "{B122C8F7-C350-4B51-ABF0-A303FE8E7455}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{670337F0-675F-47D9-91EE-743E0C551667}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 17.0.0.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C670FE68-6427-4CCA-B920-0B9F4C9719E6}"
 	ProjectSection(SolutionItems) = preProject
-		.build\MSBuild.Community.Tasks.dll = .build\MSBuild.Community.Tasks.dll
-		.build\MSBuild.Community.Tasks.targets = .build\MSBuild.Community.Tasks.targets
+		Common\AssemblyInfo.Common.cs = Common\AssemblyInfo.Common.cs
+					Common\Omnifactotum.Wpf.snk = Common\Omnifactotum.Wpf.snk
+		..\.editorconfig = ..\.editorconfig
+		..\.gitignore = ..\.gitignore
+		..\appveyor.yml = ..\appveyor.yml
+		..\build.cmd = ..\build.cmd
+		..\build.ps1 = ..\build.ps1
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+		..\README.NuGet.md = ..\README.NuGet.md
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		Omnifactotum.Wpf.ReleaseNotes.md = Omnifactotum.Wpf.ReleaseNotes.md
+		Omnifactotum.Wpf.runsettings = Omnifactotum.Wpf.runsettings
+		Omnifactotum.Wpf.sln.DotSettings = Omnifactotum.Wpf.sln.DotSettings
+		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnifactotum.Wpf", "Omnifactotum.Wpf\Omnifactotum.Wpf.csproj", "{B122C8F7-C350-4B51-ABF0-A303FE8E7455}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnifactotum.Wpf.Tests", "Omnifactotum.Wpf.Tests\Omnifactotum.Wpf.Tests.csproj", "{9BF17247-8A13-46CF-AD0B-EF8A9DD8F2FD}"
 EndProject
@@ -36,5 +50,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C845AC1F-5B21-4581-A053-CF2DC9DA45BF}
 	EndGlobalSection
 EndGlobal
